@@ -1,7 +1,8 @@
 #include<stdio.h>
+#include <string.h>
 int main(){
 
-	char estado1, estado2, codigoCarta1[4], codigoCarta2[4], nomeCidade1[25], nomeCidade2[25];
+	char estado1, estado2, codigoCarta1[4], codigoCarta2[4], nomeCidade1[25], nomeCidade2[25], escolhaDoUsuarioEscrita[30];
 	int pontosTuristicos1, pontosTuristicos2, populacao1, populacao2, escolhaDoUsuario;
 	float area1, area2, pib1, pib2, densidadePopulacional1, densidadePopulacional2, PibPerCapita1, PibPerCapita2;
 
@@ -50,9 +51,23 @@ int main(){
 	printf("\n\nAgora, você deve escolher uum atributo para comparar as cartas!\nVocê pode escolher entre:\n\n");
 	printf("1. População\n2. Área\n3. PIB\n4. Número de Pontos Turísticos\n5. Densidade Demográfica\n\n Digite um número de opção: ");
 	scanf("%d", &escolhaDoUsuario);
+
+	//Pegando a escolha escrita do usuário
+	if(escolhaDoUsuario == 1){
+		strcpy(escolhaDoUsuarioEscrita, "População");
+	} else if(escolhaDoUsuario == 2){
+		strcpy(escolhaDoUsuarioEscrita, "Área");
+	} else if(escolhaDoUsuario == 3){
+		strcpy(escolhaDoUsuarioEscrita, "PIB");
+	} else if(escolhaDoUsuario == 4){
+		strcpy(escolhaDoUsuarioEscrita, "Número de Pontos Turísticos");
+	} else if(escolhaDoUsuario == 5){
+		strcpy(escolhaDoUsuarioEscrita, "Densidade Demográfica");
+	}
 	
+	//
 	if(escolhaDoUsuario > 5 || escolhaDoUsuario < 1){
-		printf("Você escolheu uma opção que não existe!");
+		printf("\n\nVocê escolheu uma opção que não existe!\nExecute o programa novamente.\n\n");
 	}else{
 		switch (escolhaDoUsuario)
 		{
@@ -60,13 +75,13 @@ int main(){
 			if(populacao1 > populacao2){
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %d     Carta 2: %d\n", populacao1, populacao2);
 				printf("*** Carta 1 venceu! ***\n\n");
 			}else{
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %d     Carta 2: %d\n", populacao1, populacao2);
 				printf("*** Carta 2 venceu! ***\n\n");
 			}
@@ -74,14 +89,14 @@ int main(){
 		case 2:
 			if(area1 > area2){
 				printf("\n\nResultado:\n");
-				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("%s      %s\n", nomeCidade1, nomeCidade2);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %f     Carta 2: %f\n", area1, area2);
 				printf("*** Carta 1 venceu! ***\n\n");
 			}else{
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %f     Carta 2: %f\n", area1, area2);
 				printf("*** Carta 2 venceu! ***\n\n");
 			}
@@ -90,13 +105,13 @@ int main(){
 			if(pib1 > pib2){
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %f     Carta 2: %f\n", pib1, pib2);
 				printf("*** Carta 1 venceu! ***\n\n");
 			}else{
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %f     Carta 2: %f\n", pib1, pib2);
 				printf("*** Carta 2 venceu! ***\n\n");
 			}
@@ -105,13 +120,13 @@ int main(){
 			if(pontosTuristicos1 > pontosTuristicos2){
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %d     Carta 2: %d\n", pontosTuristicos1, pontosTuristicos2);
 				printf("*** Carta 1 venceu! ***\n\n");
 			}else{
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %d     Carta 2: %d\n", pontosTuristicos1, pontosTuristicos2);
 				printf("*** Carta 2 venceu! ***\n\n");
 			}
@@ -120,13 +135,13 @@ int main(){
 			if(densidadePopulacional1 < densidadePopulacional2){
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %f     Carta 2: %f\n", densidadePopulacional1, densidadePopulacional2);
 				printf("*** Carta 1 venceu! ***\n\n");
 			}else{
 				printf("\n\nResultado:\n");
 				printf("%s     %s\n", nomeCidade1, nomeCidade2);
-				printf("Atributo escolhido: %d\n", escolhaDoUsuario);
+				printf("Atributo escolhido: %s\n", escolhaDoUsuarioEscrita);
 				printf("Carta 1: %f     Carta 2: %f\n", densidadePopulacional1, densidadePopulacional2);
 				printf("*** Carta 2 venceu! ***\n\n");
 			}
